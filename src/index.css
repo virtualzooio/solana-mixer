@@ -1,0 +1,360 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px #FF69B4, 0 0 10px #FF69B4, 0 0 15px #FF69B4; }
+  50% { box-shadow: 0 0 10px #FF69B4, 0 0 20px #FF69B4, 0 0 30px #FF69B4; }
+  100% { box-shadow: 0 0 5px #FF69B4, 0 0 10px #FF69B4, 0 0 15px #FF69B4; }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 100% 0%; }
+  100% { background-position: -100% 0%; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.sexy-gradient {
+  background: linear-gradient(45deg, #FF69B4, #FF1493, #FF69B4);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-effect {
+  animation: pulse-glow 2s infinite;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px #FF1493;
+  color: transparent;
+}
+
+.sexy-shadow {
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+}
+
+.animated-btn {
+  background: linear-gradient(90deg, #FF69B4, #FF1493, #FF69B4);
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
+  transition: all 0.3s ease;
+}
+
+.animated-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+/* Navbar Styles */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Mobile Menu Transitions */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Form Styles */
+input:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.5);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF69B4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF1493;
+}
+
+/* Base Styles */
+body {
+  background: #0a0a0a;
+  color: white;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(255, 105, 180, 0.3);
+  color: white;
+}
+
+/* Disabled Button State */
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Loading Animation */
+.loading {
+  animation: spin 1s linear infinite;
+}
+
+/* Hover Effects */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Focus Styles */
+.focus-glow:focus {
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(45deg, #FF69B4, #FF1493);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Card Hover Effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
+}
+
+/* Status Messages */
+.status-message {
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.status-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Network Icons */
+.network-icon {
+  transition: all 0.3s ease;
+}
+
+.network-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .text-stroke {
+    -webkit-text-stroke-width: 1px;
+  }
+}
+
+/* Improved Mobile Form Elements */
+@media (max-width: 768px) {
+  input, select, button {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Better Touch Areas for Mobile */
+@media (max-width: 768px) {
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 768px) {
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Mobile-First Padding */
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Improved Mobile Scrolling */
+@media (max-width: 768px) {
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Glass Card Styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Animated Background */
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,105,180,0.1) 0%, transparent 50%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button States */
+.btn-primary {
+  @apply animated-btn text-white font-bold py-2 px-4 rounded-lg transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply transform -translate-y-0.5;
+}
+
+.btn-primary:active {
+  @apply transform translate-y-0.5;
+}
+
+/* Form Input Styles */
+.form-input {
+  @apply w-full bg-gray-800 border border-pink-500/20 rounded-lg p-3 text-white transition-colors;
+}
+
+.form-input:focus {
+  @apply border-pink-500 ring-1 ring-pink-500;
+}
+
+/* Shimmer Effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
